@@ -74,7 +74,7 @@ author: author_V0 # use ./_data/authors.yml override the site.author
 defaults:
   # _posts
   - scope:
-      path: ""
+      path: "_posts"
       type: posts
     values:
       layout: single
