@@ -1,0 +1,10 @@
+# /_data/authors.yml
+author_V0:
+  name   : "iven"
+  avatar : "/assets/images/dog1-pic.jpeg"
+  bio    : "时间沉淀的地方"
+  links:
+    - label: "GitHub"
+      icon: "fab fa-fw fa-github fa-spin"
+      url: "https://github.com/Iven2166"
+# icon	Font Awesome icon classes
