@@ -15,10 +15,11 @@
 # in the templates via {{ site.myvariable }}.
 title: Iven's blog!
 email: iven2166[at]163.com
-description: >- # this means to ignore newlines until "baseurl:"
-  。。。
-twitter_username: username
-github_username: username
+description: 时间沉淀的地方
+#  >- # this means to ignore newlines until "baseurl:"
+
+#twitter_username: username
+#github_username: username
 minimal_mistakes_skin: default
 search: true
 
@@ -58,11 +59,11 @@ plugins:
 author:
   name   : "iven"
   avatar : "/assets/images/dog1-pic.jpeg"
-  bio    : "lalallalala"
+  bio    : "时间沉淀的地方"
   links:
-    - label: "Website"
-      icon: "fas fa-fw fa-link"
-      url: "https://"
+#    - label: "Website"
+#      icon: "fas fa-fw fa-link"
+#      url: "https://"
 #    - label: "Twitter"
 #      icon: "fab fa-fw fa-twitter-square"
 #      url: "https://twitter.com/"
