@@ -1,6 +1,4 @@
 main:
-  - title: "Main"
-    url: /docs/
   - title: "Posts"
     url: /posts/
   - title: "Categories"
