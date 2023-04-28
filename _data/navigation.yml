@@ -12,4 +12,4 @@ docs:
   - title: multi-modal
     children:
       - title: "CLIP"
-        url: /_posts/2023-04-28-post-CLIP-model.md
+        url: /内容-多模态/post-CLIP-model/
