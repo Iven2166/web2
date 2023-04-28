@@ -3,7 +3,7 @@ main:
     url: /posts/
   - title: "Categories"
     url: /categories/
-  - title: "Tags"
+  - title: "标签归类"
     url: /tags/
   - title: "About"
     url: /about/
