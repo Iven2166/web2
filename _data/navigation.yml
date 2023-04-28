@@ -8,7 +8,7 @@ main:
   - title: "About"
     url: /about/
 
-docs:
+modal_docs:
   - title: multi-modal
     children:
       - title: "CLIP"

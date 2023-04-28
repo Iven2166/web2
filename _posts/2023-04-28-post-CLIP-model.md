@@ -6,6 +6,8 @@ categories:
 tags:
   - CLIP
   - multi-modal
+sidebar:
+  - nav: "modal_docs"
 ---
 
 # 定义

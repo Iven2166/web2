@@ -85,8 +85,8 @@ defaults:
       share: true
       related: true
       show_date: true
-      sidebar:
-        nav: "docs" # 使用 ./_data/navigation.yml 里面的 docs 目录形式，放到文章里作为 sidebar
+#      sidebar:
+#        nav: "docs" # 使用 ./_data/navigation.yml 里面的 docs 目录形式，放到文章里作为 sidebar
   # _pages
   - scope:
       path: "_pages"
