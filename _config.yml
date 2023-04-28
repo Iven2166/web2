@@ -61,18 +61,11 @@ author:
   avatar : "/assets/images/dog1-pic.jpeg"
   bio    : "时间沉淀的地方"
   links:
-#    - label: "Website"
-#      icon: "fas fa-fw fa-link"
-#      url: "https://"
-#    - label: "Twitter"
-#      icon: "fab fa-fw fa-twitter-square"
-#      url: "https://twitter.com/"
     - label: "GitHub"
-      icon: "fab fa-fw fa-github"
+      icon: "fab fa-fw fa-github fa-spin"
       url: "https://github.com/Iven2166"
-#    - label: "Instagram"
-#      icon: "fab fa-fw fa-instagram"
-#      url: "https://instagram.com/"
+# icon	Font Awesome icon classes
+
 
 #footer:
 #  links:
@@ -94,10 +87,12 @@ defaults:
     values:
       layout: single
       author_profile: true
-      read_time: true
+      read_time: true # Enable estimated reading time snippets with read_time: true in YAML Front Matter. 200 has been set as the default words per minute value — which can be changed by adjusting words_per_minute: in _config.yml
+      words_per_minute: 250 # set read time
       comments: true
       share: true
       related: true
+      show_date: true
   # _pages
   - scope:
       path: "_pages"
