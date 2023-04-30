@@ -20,19 +20,66 @@ header:
 论文 [Learning Transferable Visual Models From Natural Language Supervision][clip-paper] 
 - 2021年
 - 发表于 arxiv
+- 源码: https://github.com/OpenAI/CLIP
 
-利用text信息监督视觉任务自训练，本质就是将分类任务化成了图文匹配任务，效果可与全监督方法相当 
+## 1.摘要
+
+1、提出CV的现状问题：预训练需要大量的标注数据 
+
+2、数据解决方法：从图像的介绍文本（相对丰富）获取数据，4亿图像和文本对 
+
+3、模型解决方法：构建标题和图像对应的任务，对比学习 
+
+4、效果：zero-shot，用于OCR、图像分类、视频动作识别等下游任务;利用文本信息监督视觉任务自训练，本质就是将分类任务转化成了图文匹配任务，效果可与全监督方法相当 
+
+> 最先进的计算机视觉系统经过训练可以预测一组固定的预定对象类别。 这种受限的监督形式限制了它们的通用性和可用性，因为需要`额外的标记数据`来指定任何其他视觉概念。 直接从有关`图像的原始文本`中学习是一种很有前途的替代方案，它可以利用更广泛的监督资源。 
+> 
+> 我们证明了预测`哪个标题与哪个图像对应的简单预训练任务`是一种有效且可扩展的方式，可以在从互联网收集的 `4 亿（图像、文本）对`数据集上从头开始学习 SOTA 图像表示。 
+> 
+> 预训练后，使用自然语言来引用学习到的视觉概念（或描述新概念），从而实现模型到下游任务的零样本迁移。 我们通过对 30 多个不同的现有计算机视觉数据集进行基准测试来研究这种方法的性能，涵盖 OCR、视频中的动作识别、地理定位和许多类型的细粒度对象分类等任务。 该模型可以轻松地迁移到大多数任务，并且通常可以与完全监督的基线相媲美，而无需任何数据集特定的训练。 例如，我们在 ImageNet zero-shot 上匹配原始 ResNet-50 的准确性，而无需使用它所训练的 128 万个训练示例中的任何一个。 
 
 <figure>
   <img src="{{ '/assets/images/clip-img.png' | relative_url }}" alt="clip-paper">
 </figure>
 
-# 定义
+## 2. 介绍学界进展、gap、clip优越性
 
-# 计算方法
-## 1
-sadfasf
-## 2
-CLIP
+### NLP预训练任务的启发
+
+文本预训练里，“文本到文本”作为标准化输入输出接口的发展使得与任务无关的架构能够零样本传输到下游数据集，从而消除了对专门输出头或数据集特定定制的需求。典型代表：GPT系列 能够在下游多种任务进行表现。
+
+这些结果表明，在网络规模的文本集合（web-scale collections of text）中的现代预训练方法可获得的总体监督超过了用高质量密集标记（high-quality crowd-labeled）NLP数据集得到的监督效果。
+
+### CV的过往进展
+- Mori et al. (1999) 通过训练模型来预测与图像配对的文本文档中的名词和形容词，探索改进基于内容的图像检索。
+- Quattoni et al. (2007)：证明可以通过在分类器X的权重空间中进行学习来学习更多数据有效的图像表示，这些分类器X是训练预测与图像相关的字幕中的单词
+- Srivastava & Salakhutdinov (2012)：通过在低层级的图像和文本标签特征之上训练多模态深度玻尔兹曼机来探索深度表征学习。
+- Joulin et al. (2016)：对这一工作领域进行了现代化改造，并证明经过训练以预测图像说明中的单词的 CNN 学习了有用的图像表示。 
+- Thomee et al.，2016：将YFCC100M 数据集中图像的标题、描述和主题标签元数据转换为词袋多标签分类任务
+- 采用更新的架构和预训练方法，VirTex (Desai & Johnson, 2020)、ICMLM (Bulent Sariyildiz et al., 2020) 和 ConVIRT (Zhang et al., 2020) 最近展示了基于转换器的语言的潜力 建模、掩码语言建模和对比学习，以从文本中学习图像表示
+
+### 为何没火起来？
+
+相对而言，CV 类似的做法还比较少。主要是因为效果较差，文中也列举了很多案例。
+>This is likely because demonstrated performance on common benchmarks is much lower than alternative approaches.
+
+相比于有监督学习（1000 个label），利用文本进行预训练：学习 18291 个label。但均使用了`静态`的softmax判别分类，以及缺乏`动态生成`的机制。限制了灵活性以及 zero-shot 的能力。
+> Both approaches also use static softmax classifiers to
+perform prediction and lack a mechanism for dynamic outputs. This severely curtails their flexibility and limits their
+“zero-shot” capabilities
+
+另外，规模差异也是一个因素。本文的CLIP直接上大规模，减少了gap，创造了 400百万 的大规模图片文本数据对。
+>While Mahajan et al. (2018) and Kolesnikov et al. (2019) trained their models for accelerator years on millions to billions of images, VirTex, ICMLM, and ConVIRT trained for accelerator days on one to two hundred thousand images. 
+
+
+
+
+
+
+## 衍生问题
+
+- 如何把握数据质量？比如想让图片和文本能够有ocr任务能力，一张具备文本的限速照片，文本应该讲述限速多少
+- 
+
 
 [clip-paper]: https://arxiv.org/abs/2103.00020
