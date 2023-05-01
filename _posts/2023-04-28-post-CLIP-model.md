@@ -6,7 +6,8 @@ categories:
   - 内容-多模态
 tags:
   - CLIP
-  - multi-modal
+  - 多模态
+  - 对比学习
 classes: wide
 sidebar:
   - nav: "modal_docs"
@@ -14,7 +15,7 @@ header:
   - image: /assets/images/clip-img.png
 ---
 
-本文旨在通过CLIP模型的原论文介绍，来剖析模型结构、、、以及重点细节。并且进行应用，观察效果。
+本文旨在通过CLIP模型的原论文介绍，来剖析模型结构以及重点细节。并且进行应用，观察效果。
 
 # clip论文
 
@@ -39,11 +40,12 @@ header:
 > 
 > 预训练后，使用自然语言来引用学习到的视觉概念（或描述新概念），从而实现模型到下游任务的零样本迁移。 我们通过对 30 多个不同的现有计算机视觉数据集进行基准测试来研究这种方法的性能，涵盖 OCR、视频中的动作识别、地理定位和许多类型的细粒度对象分类等任务。 该模型可以轻松地迁移到大多数任务，并且通常可以与完全监督的基线相媲美，而无需任何数据集特定的训练。 例如，我们在 ImageNet zero-shot 上匹配原始 ResNet-50 的准确性，而无需使用它所训练的 128 万个训练示例中的任何一个。 
 
-<figure>
-  <img src="{{ '/assets/images/clip-img.png' | relative_url }}" alt="clip-paper">
-</figure>
+
 
 ## 2. 介绍学界进展、gap、clip优越性
+
+该部分介绍了学界在NLP领域的预训练进展，以及CV的预训练对应发展。
+同时，阐述了
 
 ### NLP预训练任务的启发
 
@@ -72,9 +74,62 @@ perform prediction and lack a mechanism for dynamic outputs. This severely curta
 另外，规模差异也是一个因素。本文的CLIP直接上大规模，减少了gap，创造了 400百万 的大规模图片文本数据对。
 >While Mahajan et al. (2018) and Kolesnikov et al. (2019) trained their models for accelerator years on millions to billions of images, VirTex, ICMLM, and ConVIRT trained for accelerator days on one to two hundred thousand images. 
 
+## 2. 做法
 
+### 小总结
 
+这一部分介绍clip模型的基本做法。
 
+模型：对比学习，预测N * N对图文数据，将图片分类任务转换成图文匹配任务
+
+- 双流，2个encoder分别处理文本和图片数据，text encoder使用Transformer，image encoder用了2种模型，ResNet和Vision Transformer(ViT)；
+- encoder representation直接线性投影到multi-modal embedding space； 
+- 计算两个模态之间的cosine similarity，让N个匹配的图文对相似度最大，不匹配的图文对相似度最小； 
+- 对称的cross-entropy loss???
+- 数据增强：对resized图片进行random square crop
+
+<figure>
+  <img src="{{ '/assets/images/clip-img.png' | relative_url }}" alt="clip-paper">
+</figure>
+
+### 2.1 自然语言监督（Natural Language Supervision）
+
+本段主要阐述了NLP相比CV在预训练的"天然优势"：从语言里学习，有诸多好处。
+- 不必拘泥于传统图像学习里的静态机器学习的样式（`“machine learning
+compatible format”`），比如图像的固定分类标准
+- 网络的文本数据量级巨大
+- 无监督或者半监督，不仅学习表征，还将表征联系到了语言，所以可以灵活地进行zero-shot（比如，输入图片，有一段话进行表示）
+>Learning from natural language also has an important advantage over most unsupervised or self-supervised learning approaches in that it doesn’t “just” learn a representation but also connects that representation to language which enables flexible zero-shot  transfer
+
+### 2.2 构建数据集（Creating a Sufficiently Large Dataset）
+
+- 通过搜索query，构造了 400百万 的图像-文本对
+- 总词数规模达到 WebText （GPT-2）
+
+### 2.3 选择高效预训练方法（Selecting an Efficient Pre-Training Method）
+
+- 首先，CV之前的预训练模型，仅在预测1000分类时计算量已十分巨大；开放式预测表达图像的语言表述似乎更难。因此，要做好语言相关的预训练，关键得寻找高效的训练任务和方法。
+- 最开始的做法，其实联合训练了 CNN 和 文本transformer 去做图像的语言分类预测； 发现同等准确率时，效率低于基准的词袋预测模型
+> Our initial approach, similar to VirTex, jointly trained an image CNN and text transformer from scratch to predict the caption of an image. In Figure 2 we show that a 63 million parameter transformer language model, which already uses twice the compute of its ResNet-50 image encoder, learns to recognize ImageNet classes three times slower than a much simpler baseline that predicts a bag-ofwords encoding of the same text
+- 究其原因，是因为预测具体的词是非常困难的任务（一张图片会有同性质但不完全相同的描述）。因此，转化为对比学习。不仅zero-shot迁移到 IMAGENET 的准确度高，而且效率高。
+> Recent work in contrastive representation learning for images has found that contrastive objectives can learn better representations than their equivalent predictive objective (Tian et al., 2019)
+
+<figure>
+  <img src="{{ '/assets/images/clip-img2.png' | relative_url }}" alt="clip-paper-2">
+</figure>
+
+有几点训练的细节
+
+- 学习多模态表征的方式：对比学习任务，最大化 N 真实图像-文本对的概率，最小化 N^2 - N 的负样本图像-文本对的概率。
+- 由于数据量级很大，过拟合不是主要问题
+- 从头训练CLIP，不会初始化 文本和图片的encoder
+- 从encoder到多模态的同一空间里，不使用 非线性的映射，使用linear
+- 数据增强：仅进行了图片缩放后的裁剪
+- 温度参数：在计算 logits 里的 tau 系数，不是超参数，而是放到训练里 
+
+<figure>
+  <img src="{{ '/assets/images/clip-img3.png' | relative_url }}" alt="clip-paper-2">
+</figure>
 
 
 ## 衍生问题
