@@ -24,7 +24,7 @@ header:
 - 发表于 arxiv
 - 源码: https://github.com/OpenAI/CLIP
 
-## 1.摘要
+## 摘要
 
 1、提出CV的现状问题：预训练需要大量的标注数据 
 
@@ -40,12 +40,9 @@ header:
 > 
 > 预训练后，使用自然语言来引用学习到的视觉概念（或描述新概念），从而实现模型到下游任务的零样本迁移。 我们通过对 30 多个不同的现有计算机视觉数据集进行基准测试来研究这种方法的性能，涵盖 OCR、视频中的动作识别、地理定位和许多类型的细粒度对象分类等任务。 该模型可以轻松地迁移到大多数任务，并且通常可以与完全监督的基线相媲美，而无需任何数据集特定的训练。 例如，我们在 ImageNet zero-shot 上匹配原始 ResNet-50 的准确性，而无需使用它所训练的 128 万个训练示例中的任何一个。 
 
-
-
-## 2. 介绍学界进展、gap、clip优越性
+## 1. 介绍学界进展、gap、clip优越性
 
 该部分介绍了学界在NLP领域的预训练进展，以及CV的预训练对应发展。
-同时，阐述了
 
 ### NLP预训练任务的启发
 
@@ -85,7 +82,7 @@ perform prediction and lack a mechanism for dynamic outputs. This severely curta
 - 双流，2个encoder分别处理文本和图片数据，text encoder使用Transformer，image encoder用了2种模型，ResNet和Vision Transformer(ViT)；
 - encoder representation直接线性投影到multi-modal embedding space； 
 - 计算两个模态之间的cosine similarity，让N个匹配的图文对相似度最大，不匹配的图文对相似度最小； 
-- 对称的cross-entropy loss???
+- 对称的cross-entropy loss
 - 数据增强：对resized图片进行random square crop
 
 <figure>
