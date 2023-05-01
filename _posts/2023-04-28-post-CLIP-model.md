@@ -190,14 +190,16 @@ compatible format”`），比如图像的固定分类标准
 
 原文后面再提供了大量数据集和对比细节。
 
-### 3.2 学习表征
-
-### 3.3. Robustness to Natural Distribution Shift
+[//]: # (### 3.2 学习表征)
+[//]: # (### 3.3 鲁棒性 Robustness to Natural Distribution Shift)
 
 ## 衍生问题
 
 - 如何把握数据质量？比如想让图片和文本能够有ocr任务能力，一张具备文本的限速照片，文本应该讲述限速多少
-- 
+- 这种规模的大模型，学习率等超参数如何调节？
+- 用小模型作为encoder提取图片和文本特征，效果会减弱多少？
+- 公司业务如何应用？做图片qa、图片分类，但似乎做不了文本生成图片？
+
 
 
 [clip-paper]: https://arxiv.org/abs/2103.00020
