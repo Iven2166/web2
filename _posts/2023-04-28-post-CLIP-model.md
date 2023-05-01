@@ -29,7 +29,7 @@ header:
 论文 [Learning Transferable Visual Models From Natural Language Supervision][clip-paper] 
 - 2021年
 - 发表于 arxiv
-- 源码: https://github.com/OpenAI/CLIP
+- 源码: [https://github.com/OpenAI/CLIP](https://github.com/OpenAI/CLIP)
 
 ## 摘要
 
