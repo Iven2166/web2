@@ -93,7 +93,7 @@ perform prediction and lack a mechanism for dynamic outputs. This severely curta
 - 数据增强：对resized图片进行random square crop
 
 <figure>
-  <img src="{{ '/assets/images/clip-img.png' | relative_url }}" alt="clip-paper"  class="center" style="max-height:450px; max-width:450px">
+  <img src="{{ '/assets/images/clip-img.png' | relative_url }}" alt="clip-paper"  class="center" style="max-height:600px; max-width:600px">
 </figure>
 
 ### 2.1 自然语言监督（Natural Language Supervision）
@@ -119,7 +119,7 @@ compatible format”`），比如图像的固定分类标准
 > Recent work in contrastive representation learning for images has found that contrastive objectives can learn better representations than their equivalent predictive objective (Tian et al., 2019)
 
 <figure>
-  <img src="{{ '/assets/images/clip-img2.png' | relative_url }}" alt="clip-paper-2">
+  <img src="{{ '/assets/images/clip-img2.png' | relative_url }}" alt="clip-paper"  class="center" style="max-height:600px; max-width:600px">
 </figure>
 
 有几点训练的细节
@@ -132,7 +132,7 @@ compatible format”`），比如图像的固定分类标准
 - 温度参数：在计算 logits 里的 tau 系数，不是超参数，而是放到训练里 
 
 <figure>
-  <img src="{{ '/assets/images/clip-img3.png' | relative_url }}" alt="clip-paper-2">
+  <img src="{{ '/assets/images/clip-img3.png' | relative_url }}" alt="clip-paper"  class="center" style="max-height:600px; max-width:600px">
 </figure>
 
 ### 2.4 选择和缩放模型架构（Choosing and Scaling a Model）
