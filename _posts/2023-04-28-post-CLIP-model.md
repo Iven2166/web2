@@ -65,9 +65,9 @@ header:
 - Thomee et al.，2016：将YFCC100M 数据集中图像的标题、描述和主题标签元数据转换为词袋多标签分类任务
 - 采用更新的架构和预训练方法，VirTex (Desai & Johnson, 2020)、ICMLM (Bulent Sariyildiz et al., 2020) 和 ConVIRT (Zhang et al., 2020) 最近展示了基于转换器的语言的潜力 建模、掩码语言建模和对比学习，以从文本中学习图像表示
 
-### 为何没火起来？
+### CV在该领域为何还没有较强效果？--即本论文填补的gap
 
-相对而言，CV 类似的做法还比较少。主要是因为效果较差，文中也列举了很多案例。
+相对而言，CV 类似的做法效果较差，文中也列举了很多案例。
 >This is likely because demonstrated performance on common benchmarks is much lower than alternative approaches.
 
 相比于有监督学习（1000 个label），利用文本进行预训练：学习 18291 个label。但均使用了`静态`的softmax判别分类，以及缺乏`动态生成`的机制。限制了灵活性以及 zero-shot 的能力。
@@ -93,9 +93,7 @@ perform prediction and lack a mechanism for dynamic outputs. This severely curta
 - 数据增强：对resized图片进行random square crop
 
 <figure>
-<div style="max-height:450px; max-width:450px; overflow: hidden">
-  <img src="{{ '/assets/images/clip-img.png' | relative_url }}" alt="clip-paper">
-</div>
+  <img src="{{ '/assets/images/clip-img.png' | relative_url }}" alt="clip-paper"  class="center" style="max-height:450px; max-width:450px">
 </figure>
 
 ### 2.1 自然语言监督（Natural Language Supervision）
