@@ -17,7 +17,7 @@ header:
 
 本文旨在通过CLIP模型的原论文介绍，来剖析模型结构以及重点细节。并且进行应用，观察效果。
 
-# 应用
+# 先看应用
 
 应用：[github链接][my-github-clip-1]
 
@@ -93,7 +93,9 @@ perform prediction and lack a mechanism for dynamic outputs. This severely curta
 - 数据增强：对resized图片进行random square crop
 
 <figure>
+<div style="max-height:450px; max-width:450px; overflow: hidden">
   <img src="{{ '/assets/images/clip-img.png' | relative_url }}" alt="clip-paper">
+</div>
 </figure>
 
 ### 2.1 自然语言监督（Natural Language Supervision）
