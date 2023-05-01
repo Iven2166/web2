@@ -131,6 +131,68 @@ compatible format”`），比如图像的固定分类标准
   <img src="{{ '/assets/images/clip-img3.png' | relative_url }}" alt="clip-paper-2">
 </figure>
 
+### 2.4 选择和缩放模型架构（Choosing and Scaling a Model）
+
+- 图像encoder：（1）ResNet-50 （2）Vision Transformer（ViT）
+- 文本encoder：Transformer基础版本
+  - 63M-parameter 12-layer 512-wide model with 8 attention heads
+  - 文本截断：76
+  - 采用BPE编码
+  - 将 [EOS] token 视为表征提取
+
+### 2.5 训练
+
+细节见原文吧～ 
+
+> We train all models for 32 epochs.
+> 
+> Initial hyperparameters were set using a combination of grid searches, random search, and manual tuning on the baseline ResNet-50 model when trained for 1 epoch.
+> 
+> The learnable temperature parameter τ was initialized to the equivalent of 0.07 from (Wu et al.,2018) and clipped to prevent scaling the logits by more than 100 which we found necessary to prevent training instability.
+> 
+> We usea very large minibatch size of 32,768.
+> 
+> Mixed-precision (Micikevicius et al., 2017) was used to accelerate training and save memory.
+> 
+> To save additional memory, gradient checkpointing (Griewank & Walther, 2000; Chen et al., 2016), half-precision Adam statistics (Dhariwalet al., 2020), and half-precision stochastically rounded text encoder weights were used.
+> 
+> The largest ResNet model, RN50x64, took 18 days to train on 592 V100 GPUs while the largest Vision Transformer took 12 days on 256 V100 GPUs.
+
+## 3. 实验
+
+### 3.1 zero-shot 迁移
+
+图片分类的zero-shot指的是对未知类别进行推理。本文的zero-shot指的是对未知任务进行推理，通过zero-shot transfer衡量任务学习的能力。`Visual N-Grams (Li et al., 2017)` 是第一个将zero-shot transfer应用到图片分类任务上的模型。模型用于学习长度为1~5grams的共142806个visual n-grams，对输入的图片，最大化对应的n-grams的probability。
+
+同样的，CLIP在进行zero-shot transfer时，将数据集中的类别标签转换为文字描述，主要步骤如下：
+
+- 输入：考虑到大部分的数据集的标签都是以单词的形式存在的，比如“bird”，“cat”等等，然而在预训练阶段的文本描述大多都是某个短句，为了填补这种数据分布上的差别，作者考虑用“指示上下文”（guide context）对标签进行扩展。可以用a photo of a “object".作为文本端的输入，其中的``恰恰是需要预测的zero-shot标签。（100个类别就是100个文本描述）； 
+- 转换向量：经过2个encoder，分别输出image和text的feature embedding； 
+- 计算cosine similarity； 
+- 预测类别：multinomial logistic regression classifier。
+> Note that this prediction layer is a multinomial logistic regression classifier with L2-normalized inputs, L2-normalized weights, no bias, and temperature scaling. 
+
+#### 3.1.3 对比可视化n-grams算法
+
+虽然大幅领先，但除了模型架构之外，还有模型规模、数据采样和模型推出时间gap、训练数据量规模等原因。
+
+#### 3.1.4. 提示词 PROMPT ENGINEERING AND ENSEMBLING
+
+- 提示词能够提升模型表现，比如相比无提示词，提升 ImageNet 预测准确率 1.3pp
+- 针对任务细节，还可以调整提示词
+>This often improves performance over the baseline of using only the label text. For instance, just using this prompt improves accuracy on ImageNet by 1.3%.
+> 
+> For example on Oxford-IIIT Pets, using “A photo of a flabelg, a type of pet.”
+> 
+> For OCR datasets, we found that putting quotes around the text or number to be recognized improved performance.
+> 
+> we found that on satellite image classification datasets it helped to specify that the images were of this form and we use variants of “a satellite photo of a flabelg.”
+
+原文后面再提供了大量数据集和对比细节。
+
+### 3.2 学习表征
+
+### 3.3. Robustness to Natural Distribution Shift
 
 ## 衍生问题
 
