@@ -17,6 +17,10 @@ header:
 
 本文旨在通过CLIP模型的原论文介绍，来剖析模型结构以及重点细节。并且进行应用，观察效果。
 
+# 应用
+我用clip模型，跑通了 zero-shot，进行了图片识别、OCR识别。感知效果还是不错的。[github链接][my-github-clip-1] 我们可以用个初始印象，再跳到论文细节里，理解作者的用意。
+
+
 # clip论文
 
 论文 [Learning Transferable Visual Models From Natural Language Supervision][clip-paper] 
@@ -200,3 +204,4 @@ compatible format”`），比如图像的固定分类标准
 
 
 [clip-paper]: https://arxiv.org/abs/2103.00020
+[my-github-clip-1]: https://github.com/Iven2166/models-learning/blob/main/deep-learning/modals-models/clip/clip-hugging.ipynb
