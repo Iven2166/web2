@@ -83,7 +83,19 @@ AE模型学习一个隐向量，每个维度可能表达某些图片信息。并
 
 # 3. 应用
 
+[Jupyter地址][my-github-vae-1]
 
+- 2个epoch: 相对模糊，部分非数字形状
+
+<figure>
+  <img src="{{ '/assets/images/vae-img-gen1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
+</figure>
+
+- 20个epoch: 相对清晰数字有轮廓
+
+<figure>
+  <img src="{{ '/assets/images/vae-img-gen2.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
+</figure>
 
 
 # 附录
@@ -98,5 +110,6 @@ AE模型学习一个隐向量，每个维度可能表达某些图片信息。并
   - 博客-GAN：
     - https://kvfrans.com/generative-adversial-networks-explained/
   - openAI-DALL-E：https://openai.com/research/dall-e
+
 [clip-paper]: https://arxiv.org/abs/2103.00020
-[my-github-clip-1]: https://github.com/Iven2166/models-learning/blob/main/deep-learning/modals-models/clip/clip-hugging.ipynb
+[my-github-vae-1]: https://github.com/Iven2166/models-learning/blob/main/deep-learning/modals-models/vae/VAE-demo1.ipynb
