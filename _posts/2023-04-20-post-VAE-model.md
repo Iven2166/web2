@@ -14,28 +14,74 @@ sidebar:
 
 # 背景
 - 为何会出现VAE？填补了什么gap？
+使用普通GAN能够生成逼真的图像，但具备几个缺点：（1）图像是根据任意噪声生成的，我们只能通过搜索整个分布，才可以知道初始噪声值生成某个图片（2）GAN训练的任务是区分真实和生成图片，没有限制图片的类型（比如生成猫图片必需像猫），只是样式像正常图片。
+
 - VAE能做什么？
-- VAE原理简述
+它作为生成模型，可以接受我们输入的*服从高斯分布*的数据，来生成图像。
+
+- VAE原理简述 
+  - 标准的自动编码器（AE）的原理是能够基于训练数据，压缩图片信息，即保存图片的编码向量；再通过解码器，重建这个图片。
+  - 变分自动编码器（VAE）：我们希望模型不是仅"记忆并重建"图片的数据结构，还可以做到"生成"。因此，编码网络加入了约束，即通过训练，迫使隐藏层服从高斯分布。在推理阶段，我们可以从高斯分布里进行采样，并且送到解码器进行生成图片。这也是跟AE的本质区别。
 
 # VAE模型理解
 
+- 论文：https://arxiv.org/abs/1312.6114
+- 时间：2013
+
 ## 直白理解
 
-## 模型框架讨论
+AE模型学习一个隐向量，每个维度可能表达某些图片信息。并且通过该向量进行解码，生成图像。
 
-- 模型框架
-- 损失函数
-- 如何应用于生成模型？
+<figure>
+  <img src="{{ '/assets/images/vae-img2.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
+</figure>
+
+但我们更希望做到的是，每个潜在属性表示为概率分布，我们可以以此进行调节，生成不通风格的图像。
+
+
+<figure>
+  <img src="{{ '/assets/images/vae-img3.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
+</figure>
+
+
+<figure>
+  <img src="{{ '/assets/images/vae-img4.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
+</figure>
+
+
+## 模型框架
+
+模型图
+
+<figure>
+  <img src="{{ '/assets/images/vae-img5.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
+</figure>
+
+（1）计算流程
+
+假设已经有某个分布的 z，我们通过解码器生成了 x：
+$$
+p(z|x)=\frac{p(x|z)p(z)}{p(x)} 
+$$
+
+（2）损失函数
+
+
+
+### 如何应用于生成模型？
 
 
 # 附录
 - 参考链接：
   - openAI文章：https://openai.com/research/generative-models
-  - 解释VAE的博客：https://kvfrans.com/variational-autoencoders-explained/
-  - 解释GAN的博客：https://kvfrans.com/generative-adversial-networks-explained/
-  - openAI-DALL-E：https://openai.com/research/dall-e
   - CLIPdraw：https://www.crosslabs.org/blog/clipdraw-exploring-text-to-drawing-synthesis
-  - 博客-VAE：https://www.jeremyjordan.me/variational-autoencoders/
-
+  - 博客-VAE：
+    - https://www.jeremyjordan.me/variational-autoencoders/
+    - https://zhuanlan.zhihu.com/p/79536532
+    - https://kvfrans.com/variational-autoencoders-explained/
+    - https://zhuanlan.zhihu.com/p/108262170
+  - 博客-GAN：
+    - https://kvfrans.com/generative-adversial-networks-explained/
+  - openAI-DALL-E：https://openai.com/research/dall-e
 [clip-paper]: https://arxiv.org/abs/2103.00020
 [my-github-clip-1]: https://github.com/Iven2166/models-learning/blob/main/deep-learning/modals-models/clip/clip-hugging.ipynb
