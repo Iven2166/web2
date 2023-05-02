@@ -57,14 +57,26 @@ AE模型学习一个隐向量，每个维度可能表达某些图片信息。并
   <img src="{{ '/assets/images/vae-img5.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
 </figure>
 
-（1）计算流程
+（1）模型框架
 
-假设已经有某个分布的 z，我们通过解码器生成了 x：
-$$
-p(z|x)=\frac{p(x|z)p(z)}{p(x)} 
-$$
+- 编码器：
+- 解码器：
+- 损失函数：
 
-（2）损失函数
+（2）为什么是这样的计算流程？
+
+假设已经有某个分布的 z，我们通过解码器生成了 x
+
+我们能观察到 x ，但也想推理出 隐变量 z 的分布/性质：
+
+$ p(z|x)=\frac{p(x|z)p(z)}{p(x)} $
+
+$p(z)$ 可知，后续我们限定了高斯分布。本质在于学习 $p(x|z)$ 此时，引入编码器。
+
+编码器 $q(z|x)$ 是能够近似 $p(x|z)$ 并且具备 `tractable distribution` 
+
+因此，引入 KL 散度去让 
+
 
 
 
