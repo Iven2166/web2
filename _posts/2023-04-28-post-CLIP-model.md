@@ -23,6 +23,14 @@ header:
 
 我用clip模型，跑通了 zero-shot，进行了图片识别、OCR识别。感知效果还是不错的。我们可以有个初始印象，再跳到论文细节里，理解作者的用意。
 
+<figure>
+  <img src="{{ '/assets/images/clip-img-jupyter1.png' | relative_url }}" alt="clip-paper"  class="center" style="max-height:600px; max-width:600px">
+</figure>
+
+<figure>
+  <img src="{{ '/assets/images/clip-img-jupyter2.png' | relative_url }}" alt="clip-paper"  class="center" style="max-height:600px; max-width:600px">
+</figure>
+
 
 # clip论文讲解
 

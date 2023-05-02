@@ -8,6 +8,7 @@ tags:
   - VAE
   - 多模态生成
 classes: wide
+words_per_minute: 10
 sidebar:
   - nav: "modal_docs"
 ---
