@@ -9,7 +9,17 @@ main:
     url: /about/
 
 modal_docs:
-  - title: multi-modal
+  - title: 多模态-内容理解
     children:
       - title: "CLIP"
         url: /内容-多模态/post-CLIP-model/
+      - title: "MFH(doing)"
+        url: /内容-多模态/post-MFH-model/
+      - title: "block-attention"
+        url: /内容-多模态/post-BlockAttention-model/
+  - title: 多模态-生成
+    children:
+      - title: "VAE(doing)"
+        url: /内容-多模态/post-VAE-model/
+      - title: "diffusion(doing)"
+        url: /内容-多模态/post-DIFFUSION-model/
