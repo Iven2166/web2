@@ -13,13 +13,13 @@ modal_docs:
     children:
       - title: "CLIP"
         url: /内容-多模态/post-CLIP-model/
-      - title: "MFH(doing)"
+      - title: "MFH(writing)"
         url: /内容-多模态/post-MFH-model/
-      - title: "block-attention"
+      - title: "block-attention(writing)"
         url: /内容-多模态/post-BlockAttention-model/
   - title: 多模态-生成
     children:
-      - title: "VAE(doing)"
+      - title: "VAE"
         url: /内容-多模态/post-VAE-model/
-      - title: "diffusion(doing)"
+      - title: "diffusion(writing)"
         url: /内容-多模态/post-DIFFUSION-model/
