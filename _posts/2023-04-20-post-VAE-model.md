@@ -65,7 +65,8 @@ AE模型学习一个隐向量，每个维度可能表达某些图片信息。并
 - 编码器：`q(z|x)` 输入图片x，训练获取最可能生成x的隐向量 z
 - 解码器：`p(z|x)` 输入隐向量 z，推理生成图片x
 - 损失函数：最大化`log(p(x|z)) + KL(q(z|x)||p(z))`
-- 重新参数化技巧：如果直接从高斯分布里随机采样z，那么因为这个独立的动作，梯度是无法更新的。所以，假设我们经过encoder获取是高斯分布，可以抽离出均值和标准差，即 `z_i = \mu_i + \epsilon_i \odot \sigma_i, \epsilon_i \in N(0,1)`
+- 重新参数化技巧：如果直接从高斯分布里随机采样z，那么因为这个独立的动作，梯度是无法更新的。所以，假设我们经过encoder获取是高斯分布，可以抽离出均值和标准差，即 
+`z_i = \mu_i + \epsilon_i \odot \sigma_i, \epsilon_i \in N(0,1)`
 
 （2）理解为什么是这样的计算流程？（不断更新中...）
 
@@ -99,7 +100,11 @@ AE模型学习一个隐向量，每个维度可能表达某些图片信息。并
 
 
 # 附录
-- 参考链接：
+## 问题思考
+
+- 如何链接到文本到图片的生成，应该是我们能够知道某种文本到隐向量的映射方法，才可以控制文本到图片的生成
+
+## 参考链接：
   - openAI文章：https://openai.com/research/generative-models
   - CLIPdraw：https://www.crosslabs.org/blog/clipdraw-exploring-text-to-drawing-synthesis
   - 博客-VAE：
