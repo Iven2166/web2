@@ -43,10 +43,9 @@ sidebar:
 
 $$z=MLB(x, y)=(U^Tx)\odot(V^Ty)$$
 
-$$x\inR^m,y\inR^n,U\inR^{m\times o},V\inR^{n\times o}$$
+$$x \in R^m, y \in R^n,U \in R^{m \times o},V \in R^{n \times o}$$
 
-$o$ 是输出特征的维度，为了提升模型的capacity（捕捉非线性特征的能力），在z之后一般会加上 tanh 激活函数
-
+$o$ 是输出特征的维度，为了提升模型的capacity（捕捉非线性特征的能力），在$z$之后一般会加上 $tanh$ 激活函数
 
 ### Generalized Multi-modal Factorized High-order Pooling (MFH)
 
@@ -65,11 +64,17 @@ bilinear poolng 能够有效学习到成对特征的交互，但也有很高的�
 
 $$z_i = x^T U_i V_i^{T} y = \sum^{k}_{d=1} x^T u_d v_d^{T} y = 1^T(U_i^T x \odot V_i^T y)$$ ： 模型压缩，对于i，参数量从 m*n 下降到 m+n（比如图片和文本分别500维度，原需500*500=25w参数量，分解后只需 1k 参数量）
 
-$$U_i=[u_1, ..., u_k] \in \R^{m \times k}, V_i=[v_1, ..., v_k] \in \R^{n \times k}, 1 \in \R^k, z \in \R^o$$
+$$U_i=[u_1, ..., u_k] \in R^{m \times k}, V_i=[v_1, ..., v_k] \in R^{n \times k}, 1 \in R^k, z \in R^o$$
+
 对于$o$个输出，我们学习到参数 
-$$U = [U_1, ..., U_o] \in \R^{m \times k \times o}, V = [V_1, ..., V_o] \in \R^{n \times k \times o}$$
-再通过 reshape 作为 $$U'\in \R^{m \times ko}, V'\in \R^{n \times ko}$$，
-$$z = SumPool(U'^Tx \odot V'^Ty, k)$$, where $$U'^Tx \odot V'^Ty \in \R^{ko}$$
+
+$$U = [U_1, ..., U_o] \in R^{m \times k \times o}, V = [V_1, ..., V_o] \in R^{n \times k \times o}$$
+
+再通过 reshape 得到 
+$$U'\in R^{m \times ko}, V'\in R^{n \times ko}$$，
+
+最终，通过聚合函数，
+$$z = SumPool(U'^Tx \odot V'^Ty, k)$$, where $$U'^Tx \odot V'^Ty \in R^{ko}$$
 
 <figure>
   <img src="{{ '/assets/images/mfh-img1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
