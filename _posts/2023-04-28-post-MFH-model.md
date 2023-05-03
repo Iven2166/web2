@@ -58,11 +58,11 @@ $o$ 是输出特征的维度，为了提升模型的capacity（捕捉非线性�
 
 最简单的多模态的线性融合方式: 
 
-$$z_i = x^T W_i y, where x\in R^m, y\in R^n, W_i \in R ^{m \times n}, z_i \in R$$
+$z_i = x^T W_i y, where$ $x\in R^m, y\in R^n, W_i \in R ^{m \times n}, z_i \in R$
 
 学习 $o$ 维的输出 $z$，我们需要  $W = [W_i, ..., W_o] \in R^{m\times n \times o}$ 虽然 bilinear poolng 能够有效学习到成对特征的交互，但也有*很高的参数量级*。
 
-因此，需要矩阵分解技巧。$W_i \in R^{m \times n}$ 能够分解为两个低秩（low-rank）的矩阵。模型压缩，对于i，参数量从 m*n 下降到 m+n（比如图片和文本分别$500$维度，原需$500 /times 500=25w$参数量，分解后只需 $1k$ 参数量）
+因此，需要矩阵分解技巧。$W_i \in R^{m \times n}$ 能够分解为两个低秩（low-rank）的矩阵。模型压缩，对于i，参数量从 m*n 下降到 m+n（比如图片和文本分别$500$维度，原需 $500 \times 500=25w$ 参数量，分解后只需 $1k$ 参数量）
 
 $$z_i = x^T U_i V_i^{T} y = \sum^{k}_{d=1} x^T u_d v_d^{T} y = 1^T(U_i^T x \odot V_i^T y)$$
 
@@ -75,7 +75,8 @@ $$U = [U_1, ..., U_o] \in R^{m \times k \times o}, V = [V_1, ..., V_o] \in R^{n 
 再通过 reshape 得到 $U'\in R^{m \times ko}, V'\in R^{n \times ko}$
 
 最终，通过聚合函数，
-$$z = SumPool(U'^Tx \odot V'^Ty, k), where U'^Tx \odot V'^Ty \in R^{ko}$$
+
+$z = SumPool(U'^Tx \odot V'^Ty, k), where$ $U'^Tx \odot V'^Ty \in R^{ko}$
 
 **MFB 模型图**
 
@@ -102,7 +103,7 @@ MLB：回顾最前面的 Multi-modal Low-rank Bilinear Pooling，可以理解为
 
 #### B. From Bilinear Pooling to Generalized High-order Pooling
 
-*MFB* 
+**MFB** 
 
 我们将 MFB 表述为以下两个公式（阶段），首先将 $x$, $y$ 进行映射到高维度空间，进行点乘，进行交叉，再dropout，获得$z_{exp} \in R^{ko}$。再降维得到$z \in R^{o}$：
 
@@ -110,7 +111,7 @@ $$z_{exp} = MFB_{exp}(x,y) = Dropout(U'^{T}x \odot V'^{T}y) \in R^{ko}$$
 
 $$z = MFB_{sqz}(z_{exp}) = Norm(SumPool(z_{exp})) \in R^{o}$$
 
-*MFH：堆叠$p$个 MFB 模块* 
+**MFH：堆叠$p$个 MFB 模块**
 
 如果将 $p$个 MFB 模块进行堆叠，我们将 $z_{exp}$ 表达过程修改为下式子，（$i \in {1,2,...,p}$ 为模块index）。这样改造后，每一层会和上一层的 $z_{exp}$ 再进行一次融合。原文里使用 $p < 4$ 作为实验参数。MFB 实际上是 MFH 的 $p=1$ 特例。
 

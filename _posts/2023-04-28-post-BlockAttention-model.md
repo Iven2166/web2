@@ -13,9 +13,9 @@ sidebar:
 ---
 
 <figure>
-  <img src="{{ '/assets/images/block-attn-img1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
+  <img src="{{ '/assets/images/block-attn-img1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:1200px; max-width:800px">
 </figure>
 
 <figure>
-  <img src="{{ '/assets/images/block-attn-img2.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
+  <img src="{{ '/assets/images/block-attn-img2.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:1200px; max-width:800px">
 </figure>
