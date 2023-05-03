@@ -15,11 +15,11 @@ sidebar:
 多模态融合阶段：
 
 <figure>
-  <img src="{{ '/assets/images/block-attn-img1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:1200px; max-width:800px">
+  <img src="{{ '/assets/images/block-attn-img1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:1800px; max-width:1200px">
 </figure>
 
 self-attention函数:
 
 <figure>
-  <img src="{{ '/assets/images/block-attn-img2.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:1200px; max-width:800px">
+  <img src="{{ '/assets/images/block-attn-img2.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:1800px; max-width:1200px">
 </figure>
