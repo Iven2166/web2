@@ -50,5 +50,31 @@ $o$ 是输出特征的维度，为了提升模型的capacity（捕捉非线性�
 
 ### Generalized Multi-modal Factorized High-order Pooling (MFH)
 
+- 首先回顾了 MFB（Multi-modal Factorized Bilinear Polling），并且给出跟MLB的关系。
+- 将MFB作为基础的模块，扩展 bilinear pooling 到  generalized high-order pooling (MFH)方法，做法是利用多个MFB叠加起来
+
+*A. Multi-modal Factorized Bilinear Pooling*
+
+最简单的多模态的线性融合方式: $z_i = x^T W_i y$，其中 $x\in R^m, y\in R^n, W_i \in R ^{m \times n}, z_i \in R$
+
+学习 o维的输出 z，我们需要  $W = [W_i, ..., W_o] \in R^{m\times n \times o}$
+
+bilinear poolng 能够有效学习到成对特征的交互，但也有很高的参数量级。
+
+因此，需要矩阵分解技巧。$W_i \in R^{m \times n}$ 能够分解为两个低秩（low-rank）的矩阵（模型压缩）
+
+$$z_i = x^T U_i V_i^{T} y = \sum^{k}_{d=1} x^T u_d v_d^{T} y = 1^T(U_i^T x \odot V_i^T y)$$ ： 模型压缩，对于i，参数量从 m*n 下降到 m+n
+
+$$U_i=[u_1, ..., u_k] \in \R^{m \times k}, V_i=[v_1, ..., v_k] \in \R^{n \times k}, 1 \in \R^k, z \in \R^o$$
+对于o个输出，我们学习到参数 
+$$U = [U_1, ..., U_o] \in \R^{m \times k \times o}, V = [V_1, ..., V_o] \in \R^{n \times k \times o}$$
+再通过 reshape 作为 $$U'\in \R^{m \times ko}, V'\in \R^{n \times ko}$$，
+$$z = SumPool(U'^Tx \odot V'^Ty, k)$$, where $$U'^Tx \odot V'^Ty \in \R^{ko}$$
+
+
+
+<figure>
+  <img src="{{ '/assets/images/mfh-img1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:600px">
+</figure>
 
 [mfh-paper]: https://arxiv.org/abs/1708.03619
