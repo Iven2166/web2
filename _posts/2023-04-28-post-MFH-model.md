@@ -13,7 +13,7 @@ sidebar:
   - nav: "modal_docs"
 ---
 
-# 论文介绍
+# 1. 论文介绍
 
 论文 [Beyond Bilinear: Generalized Multimodal Factorized High-order Pooling for Visual Question Answering][mfh-paper] 
 - 中文名称：多模态分解高阶池化方法
@@ -21,7 +21,7 @@ sidebar:
 - 文章应用任务：视觉问答VQA
 - 来源：IEEE 
 
-## 摘要
+## 1.2 摘要
 
 > 视觉问答 (VQA) 具有挑战性，因为它需要同时理解图像的视觉内容和问题的文本内容。
 > 
@@ -35,9 +35,9 @@ sidebar:
 > 
 > 结果：深度神经网络架构旨在将所有上述模块集成到一个统一模型中，以实现卓越的 VQA 性能。 借助我们的 MFH 模型集合，我们在大规模 VQA 数据集上实现了最先进的性能，并在 2017 年 VQA 挑战赛中获得亚军。
 
-## 模型
+## 1.3 模型
 
-### Multi-modal Low-rank Bilinear Pooling (MLB) 
+### (1) Multi-modal Low-rank Bilinear Pooling (MLB) 
 
 基于两个特征向量的低维映射后的哈达玛乘积
 
@@ -47,7 +47,7 @@ $$x \in R^m, y \in R^n,U \in R^{m \times o},V \in R^{n \times o}$$
 
 $o$ 是输出特征的维度，为了提升模型的capacity（捕捉非线性特征的能力），在$z$之后一般会加上 $tanh$ 激活函数
 
-### Generalized Multi-modal Factorized High-order Pooling (MFH)
+### (2) Generalized Multi-modal Factorized High-order Pooling (MFH)
 
 - 首先回顾了 MFB（Multi-modal Factorized Bilinear Polling），并且给出跟MLB的关系。
 - 将MFB作为基础的模块，扩展 bilinear pooling 到  generalized high-order pooling (MFH)方法，做法是利用多个MFB叠加起来
