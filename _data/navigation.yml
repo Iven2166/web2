@@ -13,9 +13,9 @@ modal_docs:
     children:
       - title: "CLIP"
         url: /内容-多模态/post-CLIP-model/
-      - title: "MFH(writing)"
+      - title: "MFH"
         url: /内容-多模态/post-MFH-model/
-      - title: "block-attention(writing)"
+      - title: "block-attention"
         url: /内容-多模态/post-BlockAttention-model/
   - title: 多模态-生成
     children:
