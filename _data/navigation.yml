@@ -9,15 +9,16 @@ main:
     url: /about/
 
 cv_docs:
-  - title: CV算法
+  - title: CV算法（博客迁移中）
     children:
-      - title: ""
+      - title: "CV页面首页"
+        url: /内容-CV/post-cv-index1/
 
 modal_docs:
   - title: 多模态-首页
     children:
-      - title: "多模态页面首页"
-        URL: /内容-多模态/post-modal-index/
+      - title: "序"
+        url: /内容-多模态/post-modal-index/
   - title: 多模态-内容理解
     children:
       - title: "CLIP"
