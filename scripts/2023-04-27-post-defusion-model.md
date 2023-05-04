@@ -82,8 +82,10 @@ $q$ 这部分为高斯分布，mean和var是常量，固定的。而$P$也是固
   <img src="{{ '/assets/images/ddpm-img22.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
 </figure>
 
+1:02
 
 <figure>
   <img src="{{ '/assets/images/ddpm-img23.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
 </figure>
 
+[ppt-link]:https://www.bilibili.com/video/BV16c411J7WW/?spm_id_from=333.880.my_history.page.click&vd_source=4089d4a51ca3637483befeb898ed1a46
