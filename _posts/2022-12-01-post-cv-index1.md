@@ -10,9 +10,9 @@ sidebar:
   - nav: "cv_docs"
 ---
 
-内容理解（分类居多）
+# 内容理解（分类居多）
 
-AlexNet
+## AlexNet
 - 年份：2012年
 - 效果：ILSVRC图像分类任务 top-5错误率降至 15.3%
 - 改进：
@@ -20,7 +20,7 @@ AlexNet
   - 局部响应归一化（LRN）
   - dropout、数据扩充等技巧
 
-VGGNet
+## VGGNet
 - 年份：由Karen Simonyan和Andrew Zisserman在2014年提出
 - 简介：VGG网络采用了多个小卷积核和深层网络结构，可以进一步提高图像分类和检测的准确度。相比AlexNet，VGG使用了更深的网络结构，证明了增加网络深度能够在一定程度上影响网络性能
 - 效果：ILSVRC图像分类任务 top-5错误率降至 8%，模型集成后可以到6.8%
@@ -36,7 +36,7 @@ VGGNet
   <img src="{{ '/assets/images/vgg-img1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
 </figure>
 
-Inception-V1
+## Inception-V1
 - 年份：Google团队, 2014年
 - 效果：采用了多个并行的卷积核和池化层，以及降维和升维等技术，可以有效地提取图像中的多尺度特征。ImageNet2012 数据集，突破性分类的top-5错误率降至 6.67%
 - 改进：
@@ -52,7 +52,7 @@ Inception-V1
   <img src="{{ '/assets/images/inception-v1-img2.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
 </figure>
 
-ResNet
+## ResNet
 - 背景：随着网络层数的增加，网络的训练误差和测试误差都会上升。称之为网络的退化。（不是过拟合：训练误差降低，测试误差上升）
 - 解决：采用跳层连接（shortcut connection)
 - 效果：ImageNet 2012 数据集，单模型可以让top-5错误率降低至4.49%，集成可以达到 3.57%
@@ -61,6 +61,8 @@ ResNet
   - 如果网络在加深层数时发现性能退化，它可以在控制网络里 近道 和 非近道 的组合比例，来退回到之前浅层的状态
   - 使得现有的网络，可以加到上千层
 
+
+# 其它问题
 
 $1 \times 1$ 卷积核为何可以减少参数量？
 
