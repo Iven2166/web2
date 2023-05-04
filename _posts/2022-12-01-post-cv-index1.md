@@ -42,7 +42,7 @@ sidebar:
 - 改进：
   - 网络中的大通道卷积层替换为多个小通道卷积层的多分支结构；同时利用 1、3、5 三种卷积核进行多路特征提取，让网络稀疏化，增加对多个尺度特征的适应
   - 提出bottleneck结构：在计算较大的卷积层之前，使用 $1 \times 1$ 卷积层进行对通道数进行压缩，减少计算量，然后再通过 $1 \times 1$ 卷积层进行复原
-  - ***辅助分类器***：在模型的中间层，拉出辅助分类器（推理时不参与），来计算误差损失进行反向传播，缓解深度网络的梯度消失问题. $total_loss = real_loss + 0.3 * aux_loss_1 + 0.3 * aux_loss_2$
+  - ***辅助分类器***：在模型的中间层，拉出辅助分类器（推理时不参与），来计算误差损失进行反向传播，缓解深度网络的梯度消失问题. $total_{loss} = real_{loss} + 0.3 * aux_{loss1} + 0.3 * aux_{loss2}$
 
 <figure>
   <img src="{{ '/assets/images/inception-v1-img1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
