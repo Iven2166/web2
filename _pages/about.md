@@ -1,6 +1,14 @@
 ---
 permalink: /about/
-title: "我是？"
+title: "Welcome"
 ---
 
-I graduated from an economic major and yet ended up in doing staff in content algorithm.
+你能驻足于该博客，即是缘。
+
+这个博客的定位，不仅是信息的搬运工，还能让我在这里创造、输出点自己的东西。会看长期、成长。
+
+看完这些文章，如果你信息多了点、想法有变化、有点小感触，我也会很开心。
+
+
+- 近期兴趣转移到内容相关算法
+- 以前是读金融、计量经济相关的，略懂一点宏观经济、计量方法
