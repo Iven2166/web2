@@ -3,7 +3,7 @@ title: "MFH模型介绍"
 date: 2023-03-10
 toc: true
 categories:
-  - 内容-多模态
+  - content-multi-modal
 tags:
   - MFH
   - 多模态

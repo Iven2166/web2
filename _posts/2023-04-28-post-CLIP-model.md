@@ -3,7 +3,7 @@ title: "CLIP模型介绍及应用"
 date: 2023-04-28
 toc: true
 categories:
-  - 内容-多模态
+  - content-multi-modal
 tags:
   - CLIP
   - 多模态

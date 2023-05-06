@@ -3,7 +3,7 @@ title: "多模态首页(序)"
 date: 2023-01-01
 toc: true
 categories:
-  - 内容-多模态
+  - content-multi-modal
 classes: wide
 words_per_minute: 10
 sidebar:

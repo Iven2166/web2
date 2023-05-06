@@ -3,7 +3,7 @@ title: "深度学习-细节"
 date: 2023-03-01
 toc: true
 categories:
-  - 深度学习-细节
+  - dl-details
 classes: wide
 words_per_minute: 10
 ---

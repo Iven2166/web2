@@ -3,7 +3,7 @@ title: "Block-Attention模型介绍"
 date: 2023-02-10
 toc: true
 categories:
-  - 内容-多模态
+  - content-multi-modal
 tags:
   - block-attention
   - 多模态

@@ -3,7 +3,7 @@ title: "VAE模型介绍及应用"
 date: 2023-04-20
 toc: true
 categories:
-  - 内容-多模态
+  - content-multi-modal
 tags:
   - VAE
   - 多模态生成
