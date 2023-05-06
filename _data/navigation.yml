@@ -12,24 +12,24 @@ cv_docs:
   - title: CV算法（博客迁移中）
     children:
       - title: "CV页面首页"
-        url: /内容-CV/post-cv-index1/
+        url: /content-CV/post-cv-index1/
 
 modal_docs:
   - title: 多模态-首页
     children:
       - title: "序"
-        url: /内容-多模态/post-modal-index/
+        url: /content-multi-modal/post-modal-index/
   - title: 多模态-内容理解
     children:
       - title: "CLIP"
-        url: /内容-多模态/post-CLIP-model/
+        url: /content-multi-modal/post-CLIP-model/
       - title: "MFH"
-        url: /内容-多模态/post-MFH-model/
+        url: /content-multi-modal/post-MFH-model/
       - title: "block-attention"
-        url: /内容-多模态/post-BlockAttention-model/
+        url: /content-multi-modal/post-BlockAttention-model/
   - title: 多模态-生成
     children:
       - title: "VAE"
-        url: /内容-多模态/post-VAE-model/
+        url: /content-multi-modal/post-VAE-model/
       - title: "diffusion(writing)"
-        url: /内容-多模态/post-DIFFUSION-model/
+        url: /content-multi-modal/post-DIFFUSION-model/
