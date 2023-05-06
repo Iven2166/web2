@@ -3,7 +3,7 @@ title: "CV-首页(博客迁移中)"
 date: 2022-12-01
 toc: true
 categories:
-  - 内容-CV
+  - content-CV
 classes: wide
 words_per_minute: 10
 sidebar:
