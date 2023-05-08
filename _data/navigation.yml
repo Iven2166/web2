@@ -31,7 +31,7 @@ modal_docs:
         url: /content-multi-modal/post-CLIP-model/
       - title: "MFH"
         url: /content-multi-modal/post-MFH-model/
-      - title: "block-attention"
+      - title: "attention"
         url: /content-multi-modal/post-BlockAttention-model/
   - title: 多模态-生成
     children:
