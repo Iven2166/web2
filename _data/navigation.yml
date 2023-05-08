@@ -8,6 +8,12 @@ main:
   - title: "About"
     url: /about/
 
+books:
+  - title: xxx
+    children:
+      - title: "***** 性格修正：如何突破原生性格"
+        url: /books/post-books-characteristic_breakthrough/
+
 cv_docs:
   - title: CV算法（博客迁移中）
     children:
