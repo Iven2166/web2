@@ -168,11 +168,36 @@ Q：xgboost如何处理不平衡数据？
 按照原论文作者说，实质上模型变复杂、参数变多，但训练时间跟lstm实际上相差不多。
 
 
+## albert
+
+- Factorized Embedding Parameterization，降低embedding维度，再通过全链接层扩充到高维度，匹配后续层
+- Cross-layer Parameter Sharing，不同层之间共享参数。几种方案，最终albert选择所有层共享，因为压缩力度最大并且损失可控
+  - 所有层共享
+  - attention 层共享
+  - feed forward 层共享
+  - 每M层一组，组内共享
+- Sentence Order Prediction（SOP），跟NSP都是 next sentence 任务。区别在于负样本选取不同。SOP 将正样本的两个句子调换位置，也作为负样本。
+
 ## roberta
 
-- Factorized Embedding Parameterization，矩阵分解降低embedding参数量。
-- Cross-layer Parameter Sharing，不同层之间共享参数。
-- Sentence Order Prediction（SOP），next sentence任务的负样本增强。
+A Robustly Optimized BERT Pretraining Approach
+
+相比于bert，两个差异：
+- 使用更多训练数据：160GB，而 bert 使用 16GB数据
+- 动态掩码机制：bert 在准备数据时，就进行掩码操作（静态）；而 roberta 是在输入模型时进行操作，即同一条训练数据在不同的训练 epoch 里是不同的掩码，能够学习到更多的样式
+
+## BART
+
+Bidirectional and Auto-Regressive Transformers
+
+兼顾上下文信息（bert）以及自回归特点（GPT）的模型
+
+- 噪声预训练：尽可能减少模型对"结构化信息"-即位置等的依赖
+  - token masking：替换为 mask 后进行单词预测
+  - token deletion：随机删除个别词，训练预测单词以及位置的能力
+  - text infilling：连续的词替换为 mask，并且进行包含词以及长度的预测
+  - sentence permutation：随机打乱文本顺序，加强模型对词的关联性的提取能力
+- 下游任务微调
 
 
 ## resnet
