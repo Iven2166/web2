@@ -88,4 +88,94 @@ $q$ 这部分为高斯分布，mean和var是常量，固定的。而$P$也是固
   <img src="{{ '/assets/images/ddpm-img23.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
 </figure>
 
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img24.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img25.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img26.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img27.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+
+语音合成同样的道理，要生成比较自然的声音，在推理时加上dropout
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img28.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img29.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+所以再denoise时，进行抽样效果会好一点。
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img30.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+案例
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img31.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+- training的时候为什么一步到位？
+- sampling 的时候为什么加noise
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img32.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+从文字到图像
+- Diffusion-LM：从噪声堆积上进行denoise，得到word emb，再推出来原有的text
+- 
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img33.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img33.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img34.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img35.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+Mask-Predict
+
+- 在经过第一次decoder时，第二个字出现 员，但第一个字 "演"并非最高概率。那么第二次时，把低概率的掩盖 mask 掉，再进行预测。
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img36.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+
+MVTM：类似于上面的nlp方面，预测部分，在预测低概率的地方
+- 训练：把一张图片的部分位置进行mask，进行预测
+- 推理：最开始是 mask ，再丢到decoder，再 mask 掉低概率的位置，再进行预测
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-img37.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+
+
+
 [ppt-link]:https://www.bilibili.com/video/BV16c411J7WW/?spm_id_from=333.880.my_history.page.click&vd_source=4089d4a51ca3637483befeb898ed1a46

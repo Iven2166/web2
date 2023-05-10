@@ -14,6 +14,12 @@ books:
       - title: "***** 性格修正：如何突破原生性格"
         url: /books/post-books-characteristic_breakthrough/
 
+nlp_docs:
+  - title: NLP算法
+    children:
+      - title: "NLP页面首页"
+        url: /content-nlp/post-nlp-index1/
+
 cv_docs:
   - title: CV算法（博客迁移中）
     children:

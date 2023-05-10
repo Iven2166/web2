@@ -3,6 +3,7 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/../../models-learning/.idea/models-learning.iml" filepath="$PROJECT_DIR$/../../models-learning/.idea/models-learning.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../../rc-algorithm-torch/.idea/rc-algorithm-torch.iml" filepath="$PROJECT_DIR$/../../rc-algorithm-torch/.idea/rc-algorithm-torch.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/web2.iml" filepath="$PROJECT_DIR$/.idea/web2.iml" />
     </modules>
   </component>
