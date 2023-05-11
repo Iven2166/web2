@@ -12,7 +12,20 @@ sidebar:
 
 # 实验记录
 
-项目地址：[ner_conll2003]
+## biLSTM-CRF
+
+- 任务背景conll2003是一个公开的NER数据集，任务是进行
+{0: 'O',
+ 1: 'B-PER',
+ 2: 'I-PER',
+ 3: 'B-ORG',
+ 4: 'I-ORG',
+ 5: 'B-LOC',
+ 6: 'I-LOC',
+ 7: 'B-MISC',
+ 8: 'I-MISC'} 的命名实体分类任务。 公开模型效果见paper-on-code: [ner_paperoncode]
+
+- 我的实验项目地址：[ner_conll2003]，通过构造 biLSTM-CRF 实现该 NER 任务。
 
 **从各个版本的效果提升来看，不同模块对应的指标提升有小许差异**
 - biLSTM：能够捕捉到时序特征，但仍需要注意正则来减少过拟合风险，体现于提升测试集的recall和precision指标
@@ -53,3 +66,4 @@ sidebar:
 
 
 [ner_conll2003]:https://github.com/Iven2166/models-learning/tree/main/deep-learning/NLP-models/ner/ner_conll2003
+[ner_paperoncode]:https://paperswithcode.com/sota/named-entity-recognition-ner-on-conll-2003
