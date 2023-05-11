@@ -38,7 +38,10 @@ $$ sim_score(f(x), f(x^{+})) >> sim_score(f(x), f(x^{-})) $$
 
 
 
-
+# 附录
+- 序列标注：
+  - [nlp_pos1]
 
 
 [nlp_my_project]:https://github.com/Iven2166/models-learning/tree/main/deep-learning/NLP-models
+[nlp_pos1]:https://zhuanlan.zhihu.com/p/268579769
