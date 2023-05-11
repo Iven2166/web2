@@ -31,9 +31,17 @@ sidebar:
 
 $$ sim_score(f(x), f(x^{+})) >> sim_score(f(x), f(x^{-})) $$
 
-其中，$x$ 与 $x^{+}$ 相似，与 $x^{-}$ 不相似， sim_score 是相似性度量函数。
+其中，$x$ 与 $x^{+}$ 相似，与 $x^{-}$ 不相似， sim_score 是相似性度量函数。相当于在一个空间向量的球体里，相似的文本应该是在球体里是靠近的，跟不相似的距离尽可能"拉远"。
 
-对比学习是自监督的，因此有效地构造相似pair，不相似pair 很重要。
+常用的loss：
+
+NCE，InfoNCE 可以参考这个[文章](https://zhuanlan.zhihu.com/p/506544456)，当encoder使得样本跟相似样本距离小时（向量内积、余弦距离），loss更小。同时，温度 $\tau$ 如果变大，则所有logits的数值都变小，所以logits分布更加平滑，那么对比损失对于所有的负样本都"一视同仁"，导致模型学习没有轻重。如果温度系数设的过小，则模型会越关注特别困难的负样本，但其实那些负样本很可能是潜在的正样本，这样会导致模型很难收敛或者泛化能力差。
+
+$$ Loss = - log(\frac{exp(q \dot k_{+} / \tau)}{\sum{i=0}{k}exp(q \dot k_{i} / \tau)})$$
+
+<figure>
+  <img src="{{ '/assets/images/nlp-ner1-nce-img1.png' | relative_url }}" alt="xgboost"  class="center" style="max-height:600px; max-width:800px">
+</figure>
 
 # 模型
 
