@@ -19,6 +19,8 @@ nlp_docs:
     children:
       - title: "NLP页面首页"
         url: /content-nlp/post-nlp-index1/
+      - title: "NER"
+        url: /content-nlp/post-nlp-ner1
 
 cv_docs:
   - title: CV算法（博客迁移中）
