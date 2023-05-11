@@ -52,4 +52,4 @@ sidebar:
   - Test metrics: recall = 82.04% (-2.4pp), precision = 92.75% (+ 6pp), accuracy = 95.74% (+ 0.8pp), f1 = 87.07%
 
 
-[ner_conll2003][https://github.com/Iven2166/models-learning/tree/main/deep-learning/NLP-models/ner/ner_conll2003]
+[ner_conll2003]:https://github.com/Iven2166/models-learning/tree/main/deep-learning/NLP-models/ner/ner_conll2003
