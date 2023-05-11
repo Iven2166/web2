@@ -41,4 +41,4 @@ $$ sim_score(f(x), f(x^{+})) >> sim_score(f(x), f(x^{-})) $$
 
 
 
-[nlp_my_project][https://github.com/Iven2166/models-learning/tree/main/deep-learning/NLP-models]
+[nlp_my_project]:https://github.com/Iven2166/models-learning/tree/main/deep-learning/NLP-models
