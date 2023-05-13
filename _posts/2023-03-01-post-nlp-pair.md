@@ -43,15 +43,36 @@ $$ Loss = - log(\frac{exp(q \dot k_{+} / \tau)}{\sum{i=0}{k}exp(q \dot k_{i} / \
   <img src="{{ '/assets/images/nlp-ner1-nce-img1.png' | relative_url }}" alt="xgboost"  class="center" style="max-height:600px; max-width:800px">
 </figure>
 
+## 如何获取相似文本：数据增强
+
+通过数据增强的概念，一般NLP为 加入噪声（dropout等），或者 回译（A语言翻译到B语言，再回到A语言），可以获得更相似的文本。
+
 # 模型
+
+## 基本类型
+
+- Representation based（双塔式）
+  - 文本a 和 文本b 分别进入encoder，获得两个向量后，进行计算、计算相似概率
+  - 优点：双塔模式较快，实际业务应用时先提前计算好文本的编码，实际来时再进行浅层计算。
+  - 缺点：相比交互式缺少了信息
+- Interaction based（交互式）
+  - 文本a 和 文本b 在早期时进行交互，再进行计算、计算相似概率
+  - 优点：模型理论上更有优势，因为交互早、信息多
+  - 缺点：计算慢
+
+<figure>
+  <img src="{{ '/assets/images/nlp-pairlearn-img1.png' | relative_url }}" alt="xgboost"  class="center" style="max-height:600px; max-width:800px">
+</figure>
 
 ## 
 
 
 # 应用
 
-
+数据集，[quora-question-pairs]，leaderboard达到 top50=0.13 
 
 
 
 [blog1]: https://www.zhihu.com/question/31623490/answer/2900998167
+[blog2]: https://zhuanlan.zhihu.com/p/357864974
+[quora-question-pairs]:https://www.kaggle.com/competitions/quora-question-pairs/overview/evaluation
