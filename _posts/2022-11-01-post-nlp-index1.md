@@ -22,3 +22,4 @@ sidebar:
 
 [nlp_my_project]:https://github.com/Iven2166/models-learning/tree/main/deep-learning/NLP-models
 [nlp_pos1]:https://zhuanlan.zhihu.com/p/268579769
+[nlp-blog]: https://zhuanlan.zhihu.com/p/444574498

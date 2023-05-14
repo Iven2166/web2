@@ -57,3 +57,10 @@ func(a=1,b=2,c=7)
 无法解除分配C库保留的那些内存部分。
 
 退出时，由于拥有自己的高效清理机制，Python会尝试取消分配/销毁其他所有对象。
+
+### classmethod 
+
+见 [classmethod]
+
+
+[classmethod]: https://www.programiz.com/python-programming/methods/built-in/classmethod

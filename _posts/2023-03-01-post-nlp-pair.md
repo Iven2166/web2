@@ -69,10 +69,13 @@ $$ Loss = - log(\frac{exp(q \dot k_{+} / \tau)}{\sum{i=0}{k}exp(q \dot k_{i} / \
 
 # 应用
 
-数据集，[quora-question-pairs]，leaderboard达到 top50=0.13 
+数据集，[quora-question-pairs]，leaderboard达到 top50=0.13
 
+
+[simCSE-paper]
 
 
 [blog1]: https://www.zhihu.com/question/31623490/answer/2900998167
 [blog2]: https://zhuanlan.zhihu.com/p/357864974
 [quora-question-pairs]:https://www.kaggle.com/competitions/quora-question-pairs/overview/evaluation
+[simCSE-paper]: https://arxiv.org/abs/2104.08821
