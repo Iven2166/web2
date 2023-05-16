@@ -1,5 +1,5 @@
 ---
-title: "NER-文本匹配"
+title: "NLP-文本匹配"
 date: 2023-03-01
 toc: true
 categories:
@@ -67,7 +67,9 @@ $$ Loss = - log(\frac{exp(q \dot k_{+} / \tau)}{\sum{i=0}{k}exp(q \dot k_{i} / \
 ## 
 
 
-# 应用
+# 应用1：双塔计算
+
+
 
 数据集，[quora-question-pairs]，leaderboard达到 top50=0.13
 
