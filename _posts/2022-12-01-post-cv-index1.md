@@ -69,3 +69,7 @@ $1 \times 1$ 卷积核为何可以减少参数量？
 <figure>
   <img src="{{ '/assets/images/cv-others-1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
 </figure>
+
+
+[cv-labelme]: https://github.com/wkentaro/labelme#usage
+[pytorch-object-detection]:https://pytorch.org/tutorials/intermediate/torchvision_tutorial.html#defining-the-dataset
