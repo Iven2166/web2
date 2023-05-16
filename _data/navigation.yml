@@ -19,7 +19,8 @@ nlp_docs:
     children:
       - title: "NLP页面首页"
         url: /content-nlp/post-nlp-index1/
-  - title: NER-命名实体识别 
+  - title: NER-命名实体识别
+    children:
       - title: "NER1: biLSTM-Glove-CRF"
         url: /content-nlp/post-nlp-ner1
 
