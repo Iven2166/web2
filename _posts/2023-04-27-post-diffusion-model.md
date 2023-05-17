@@ -8,6 +8,20 @@ tags:
   - multi-modal
 ---
 
+# 模型简述
+
+<figure>
+  <img src="{{ '/assets/images/ddpm-algorithm1.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
+</figure>
+
+- 从 0 到 T 时刻，不断的加入高斯噪声，公式内带有温度参数等超参数，能够控制
+
+## 如何做 text-image 生成？
+
+[dataset-LAION] 有巨大的文本-图片数据集，一般文生图都是在上面进行训练的。
+
+在 denoise 的阶段，不仅是输入T时刻带有高斯噪声的图片，还需要输入噪声的严重程度（哪个阶段），以及文本，这三个因素放到 noise-preditor 里面，生成 高斯噪声，并且减去该高斯噪声，生成了 T-1 时刻带有高斯噪声的图片。
+
 <figure>
   <img src="{{ '/assets/images/ddpm-img10.png' | relative_url }}" alt="vae-paper"  class="center" style="max-height:600px; max-width:800px">
 </figure>
@@ -179,3 +193,4 @@ MVTM：类似于上面的nlp方面，预测部分，在预测低概率的地方
 
 
 [ppt-link]:https://www.bilibili.com/video/BV16c411J7WW/?spm_id_from=333.880.my_history.page.click&vd_source=4089d4a51ca3637483befeb898ed1a46
+[dataset-LAION]:https://laion.ai/projects/

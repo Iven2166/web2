@@ -23,6 +23,12 @@ nlp_docs:
     children:
       - title: "NER1: biLSTM-Glove-CRF"
         url: /content-nlp/post-nlp-ner1
+  - title: 文本匹配
+    children:
+      - title: "pair: Glove-biLSTM-double_tower"
+        url: /content-nlp/post-nlp-pair
+
+
 
 cv_docs:
   - title: CV算法（博客迁移中）

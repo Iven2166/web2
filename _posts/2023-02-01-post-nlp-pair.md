@@ -64,15 +64,27 @@ $$ Loss = - log(\frac{exp(q \dot k_{+} / \tau)}{\sum{i=0}{k}exp(q \dot k_{i} / \
   <img src="{{ '/assets/images/nlp-pairlearn-img1.png' | relative_url }}" alt="xgboost"  class="center" style="max-height:600px; max-width:800px">
 </figure>
 
-## 
+# 应用
 
+## 应用1：双塔计算
 
-# 应用1：双塔计算
+数据集[quora-question-pairs]
+- kaggle 的 leaderboard是 Log-loss 达到 top50=0.13）
+- paperwithcode 表现：F1、acc top水平分别在 90%
 
+应用项目链接：[project1-glove-bilstm] 
+- 词emb：glove作为emb先验知识
+- 句子encoder：biLSTM 作为两个句子共享的encoder，获取表征
+- 双塔模式：核心部分在于 $torch.cat((sent1,sent2,torch.abs(sent1-sent2),sent1*sent2), dim=1)$ 最终输出分类概率
 
+验证集效果（epoch = 11）：
+- accuracy: 0.8461
+- recall: 0.8755
+- f1: 0.8080
+- precision: 0.7502
+- auc: 0.9249
 
-数据集，[quora-question-pairs]，leaderboard达到 top50=0.13
-
+## 应用2：前置使用 simCSE 进行表征计算
 
 [simCSE-paper]
 
@@ -81,3 +93,5 @@ $$ Loss = - log(\frac{exp(q \dot k_{+} / \tau)}{\sum{i=0}{k}exp(q \dot k_{i} / \
 [blog2]: https://zhuanlan.zhihu.com/p/357864974
 [quora-question-pairs]:https://www.kaggle.com/competitions/quora-question-pairs/overview/evaluation
 [simCSE-paper]: https://arxiv.org/abs/2104.08821
+[project1-glove-bilstm]: https://github.com/Iven2166/models-learning/blob/main/deep-learning/NLP-models/sentences-pair-relation/quora-ques-1-lstm.ipynb
+[project2-simcse]: 
