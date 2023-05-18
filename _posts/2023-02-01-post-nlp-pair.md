@@ -29,7 +29,7 @@ sidebar:
 
 本质是 "learn to compare"，找到一个 encoder $f$
 
-$$ sim_score(f(x), f(x^{+})) >> sim_score(f(x), f(x^{-})) $$
+$$ sim_{score}(f(x), f(x^{+})) >> sim_{score}(f(x), f(x^{-})) $$
 
 其中，$x$ 与 $x^{+}$ 相似，与 $x^{-}$ 不相似， sim_score 是相似性度量函数。相当于在一个空间向量的球体里，相似的文本应该是在球体里是靠近的，跟不相似的距离尽可能"拉远"。
 
@@ -94,4 +94,4 @@ $$ Loss = - log(\frac{exp(q \dot k_{+} / \tau)}{\sum{i=0}{k}exp(q \dot k_{i} / \
 [quora-question-pairs]:https://www.kaggle.com/competitions/quora-question-pairs/overview/evaluation
 [simCSE-paper]: https://arxiv.org/abs/2104.08821
 [project1-glove-bilstm]: https://github.com/Iven2166/models-learning/blob/main/deep-learning/NLP-models/sentences-pair-relation/quora-ques-1-lstm.ipynb
-[project2-simcse]: 
+[project2-simcse]:
