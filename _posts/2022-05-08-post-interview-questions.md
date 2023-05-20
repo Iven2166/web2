@@ -237,3 +237,14 @@ Covariate Shift：增加Batch Normalization，网络宽度深度变小等。
 随机搜索/Random Search：Bengio在“Random Search for Hyper-Parameter Optimization”https://tech.meituan.com/2018/06/07/searchads-dnn.html#fn:10中指出，Random Search比Grid Search更有效。实际操作的时候，可以先用Grid Search的方法，得到所有候选参数，然后每次从中随机选择进行训练。这种方式的优点是因为采样，时间开销变小，但另一方面，也有可能会错过较优的超参数组合。
 分阶段调参：先进行初步范围搜索，然后根据好结果出现的地方，再缩小范围进行更精细的搜索。或者根据经验值固定住其他的超参数，有针对地实验其中一个超参数，逐次迭代直至完成所有超参数的选择。这个方式的优点是可以在优先尝试次数中，拿到效果较好的结果。
 我们在实际调参过程中，使用的是第3种方式，在根据经验参数初始化超参数之后，按照隐层大小->学习率->Batch Size->Drop out/L1/L2的顺序进行参数调优。
+
+
+# spark
+
+- 开 SparkSession 
+- 初始化数据集
+- 各类算子
+  - 选择和切片
+    - filter：对数据的筛选
+    - where
+  - 
