@@ -27,7 +27,10 @@ nlp_docs:
     children:
       - title: "pair: Glove-biLSTM-double_tower"
         url: /content-nlp/post-nlp-pair
-
+  - title: 业务NLP相关
+    children:
+      - title: "query预测"
+        url: /content-nlp/post-nlp-query-estimate
 
 
 cv_docs:
