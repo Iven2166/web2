@@ -32,12 +32,17 @@ nlp_docs:
       - title: "query预测"
         url: /content-nlp/post-nlp-query-estimate
 
-
 cv_docs:
   - title: CV算法（博客迁移中）
     children:
       - title: "CV页面首页"
         url: /content-CV/post-cv-index1/
+
+datafun_docs:
+  - title: datafun
+    children:
+      - title: "datafun首页"
+        url: /datafun/post-datafun-index1/
 
 modal_docs:
   - title: 多模态-首页

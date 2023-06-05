@@ -33,3 +33,4 @@ sidebar:
 
 
 [多模态综述1]: https://arxiv.org/pdf/2301.04856v1.pdf
+[GPO跨模态检索]: https://zhuanlan.zhihu.com/p/428162431
