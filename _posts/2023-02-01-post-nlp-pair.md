@@ -86,7 +86,29 @@ $$ Loss = - log(\frac{exp(q \dot k_{+} / \tau)}{\sum{i=0}{k}exp(q \dot k_{i} / \
 
 ## 应用2：前置使用 simCSE 进行表征计算
 
-[simCSE-paper]
+### 论文解读
+
+原文：[simCSE-paper]
+
+- 背景问题：anisotropy（各向异性）
+  - 词频率问题：高频和低频距离原点距离不同，密度不同
+  - 模型坍塌（表征退化）问题：最后学习到的向量都聚到一起（在球体里不均匀），所有结果上看余弦相似度都很高，没有区分度。
+- 句子表征的发展历程
+  - 线性变换（映射为各同向性）：从bert加入flow层或者进行白化，本质都是通过线性变换，来缓解 anisotropy
+    - bert-flow
+      - 简述：将原有的分布转化为正态分布，标准的高斯分布就是各向同性的
+      - 参考：[苏剑林：你可能不需要BERT-flow：一个线性变换媲美BERT-flow]
+      - 思路是找到若干个基底，相对平均地去使用基向量
+    - bert-whitening：
+      - 简述：将向量计算均值、方差，然后进行白化
+      - 
+
+
+
+参考：
+- [simcse-share1]：SimCSE论文解读
+- [simcse-share2]：讲解了"文本表达：解决BERT中的各向异性方法总结"
+- [simcse-share3]：Bert中的词向量各向异性具体什么意思啊？
 
 
 [blog1]: https://www.zhihu.com/question/31623490/answer/2900998167
@@ -94,4 +116,8 @@ $$ Loss = - log(\frac{exp(q \dot k_{+} / \tau)}{\sum{i=0}{k}exp(q \dot k_{i} / \
 [quora-question-pairs]:https://www.kaggle.com/competitions/quora-question-pairs/overview/evaluation
 [simCSE-paper]: https://arxiv.org/abs/2104.08821
 [project1-glove-bilstm]: https://github.com/Iven2166/models-learning/blob/main/deep-learning/NLP-models/sentences-pair-relation/quora-ques-1-lstm.ipynb
-[project2-simcse]:
+[project2-simcse]:hhh
+[simcse-share1]:https://zhuanlan.zhihu.com/p/369075953
+[simcse-share2]:https://blog.csdn.net/qq_48314528/article/details/122760494
+[simcse-share3]:https://www.zhihu.com/question/460991118
+[苏剑林：你可能不需要BERT-flow：一个线性变换媲美BERT-flow]:https://kexue.fm/archives/8069
